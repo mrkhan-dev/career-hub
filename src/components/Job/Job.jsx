@@ -1,5 +1,8 @@
+import {Link} from "react-router-dom";
+
 const Job = ({job}) => {
   const {
+    id,
     logo,
     job_title,
     company_name,
@@ -23,12 +26,10 @@ const Job = ({job}) => {
         <p>{company_name}</p>
         <div className="flex gap-4">
           <button className="border-2 border-[#9873FF] px-5 py-2 rounded text-[#9873FF] text-base font-extrabold">
-            {" "}
-            {remote_or_onsite}{" "}
+            {remote_or_onsite}
           </button>
           <button className="border-2 border-[#9873FF] px-5 py-2 rounded text-[#9873FF] text-base font-extrabold">
-            {" "}
-            {job_type}{" "}
+            {job_type}
           </button>
         </div>
         <div className="flex">
@@ -36,9 +37,11 @@ const Job = ({job}) => {
           <p> {salary} </p>
         </div>
         <div className="card-actions ">
-          <button className="btn btn-primary bg-[#9873FF] text-white border-0">
-            View Details
-          </button>
+          <Link to={`/job/${id}`}>
+            <button className="btn btn-primary bg-[#9873FF] text-white border-0">
+              View Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>
